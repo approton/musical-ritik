@@ -44,6 +44,7 @@ export default defineConfig([
           "validateInquiry",
           "requestSummary",
           "createInquiry",
+          "clientBookings",
           "authorizedRequest",
           "reviewInquiry",
           "decideInquiry",

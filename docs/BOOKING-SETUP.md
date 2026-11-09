@@ -41,6 +41,8 @@ The default schedule uses half-hour starts, 10:00–23:00 in the selected timezo
 
 ## Request and approval sequence
 
+The website submits through its own `/api/booking/requests` endpoint. It displays a spinner and acknowledges a tentative booking only after Google confirms receipt. Existing deployments can return an HTML confirmation. Visitors receive the decision by email. The booking records are accessible to the owner through the private booking sheet and calendar.
+
 1. The frontend fetches availability after a date/timezone/duration is selected.
 2. It permits a checked slot only after a successful response.
 3. On submission, the backend validates the payload and rechecks availability.

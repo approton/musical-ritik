@@ -32,6 +32,7 @@ function bookingSheet() {
       "payload",
       "notification",
       "reminderSent",
+      "receiptHash",
     ]);
   }
   return sheet;

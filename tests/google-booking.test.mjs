@@ -111,7 +111,14 @@ function backend() {
       },
     },
   });
-  for (const name of ["Config", "Validation", "Availability", "Requests", "Approval"]) {
+  for (const name of [
+    "Config",
+    "Validation",
+    "Availability",
+    "Requests",
+    "Approval",
+    "Client",
+  ]) {
     vm.runInContext(
       readFileSync(
         new URL(`../integrations/google-apps-script/${name}.js`, import.meta.url),
@@ -157,6 +164,25 @@ test("request is tentative and sends no client calendar invitation", () => {
   assert.equal(f.mail.length, 1);
   assert.equal(f.mail[0].to, "artist@example.com");
   assert.equal(f.rows[1][1], "tentative");
+});
+test("a private receipt follows the decision and makes a retried submission idempotent", () => {
+  for (const [decision, status] of [
+    ["approve", "approved"],
+    ["decline", "declined"],
+  ]) {
+    const f = backend();
+    const receipt = "ab".repeat(24);
+    const body = { action: "submit", consent: "yes", receipt, data: f.data };
+    assert.equal(f.context.clientBookings(body).bookings[0].status, "tentative");
+    f.context.decideInquiry({ ...f.approval(), decision });
+    assert.equal(f.context.clientBookings(body).bookings[0].status, status);
+    assert.throws(
+      () => f.context.clientBookings({ action: "status", receipts: [receipt] }),
+      /Invalid booking request/,
+    );
+    assert.equal(f.rows.length, 2);
+    assert.ok(!f.rows[1].includes(receipt));
+  }
 });
 test("opening a review link never approves a booking", () => {
   const f = backend();
