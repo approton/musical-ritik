@@ -10,8 +10,14 @@ export default function DeliveryForm({ data, subject, booking = false }) {
       action={endpoint}
       method="POST"
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener"
+      onSubmit={(event) => {
+        if (calendar) return;
+        const { origin, pathname } = window.location;
+        event.currentTarget.elements.namedItem("_url").value = origin + pathname;
+      }}
     >
+      {!calendar && <input type="hidden" name="_url" />}
       <input type="hidden" name="_subject" value={subject} />
       <input type="hidden" name="_template" value="table" />
       <input
