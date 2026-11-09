@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
-import DeliveryForm from "@/shared/integrations/DeliveryForm";
+import BookingSubmission from "./BookingSubmission";
 import Modal from "@/shared/ui/Modal";
 import ExternalLink from "@/shared/ui/ExternalLink";
 import { socials } from "@/config/socials";
 import { bookingMessage } from "../lib/booking.mjs";
-export default function BookingTicket({ data, onClose }) {
+export default function BookingTicket({ data, onClose, onSuccess }) {
   const [status, setStatus] = useState("");
   async function copy() {
     try {
@@ -35,15 +35,8 @@ export default function BookingTicket({ data, onClose }) {
         <ExternalLink href={socials.instagram}>Send on Instagram ↗</ExternalLink>
       </div>
       <p role="status">{status}</p>
-      <p className="formNote">
-        This inquiry has not been delivered automatically. Send it to Ritik directly. Your
-        date is only reserved after artist confirmation.
-      </p>
-      <DeliveryForm
-        data={{ ...data, message: bookingMessage(data) }}
-        subject={`Booking inquiry: ${data.type} · ${data.date}`}
-        booking
-      />
+      <p className="formNote">Your date is reserved once Ritik approves it.</p>
+      <BookingSubmission data={data} onSuccess={onSuccess} />
     </Modal>
   );
 }

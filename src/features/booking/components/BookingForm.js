@@ -7,16 +7,31 @@ import { useFormFeedback } from "@/shared/ui/useFormFeedback";
 import EventDetails from "./EventDetails";
 import ContactDetails from "./ContactDetails";
 import BookingReview from "./BookingReview";
+import BookingComplete from "./BookingComplete";
 const BookingTicket = dynamic(() => import("./BookingTicket"));
 export default function BookingForm() {
   const [data, setData] = useState(initialBooking),
     [step, setStep] = useState(0),
     [errors, setErrors] = useState({}),
     [ready, setReady] = useState(false),
+    [completed, setCompleted] = useState(null),
     [notice, setNotice] = useState("");
   const heading = useRef(null);
   const feedback = useFormFeedback();
   const availability = useAvailability(data);
+  function finish(booking) {
+    setCompleted({ ...booking, email: data.email });
+    setReady(false);
+    setData({ ...initialBooking });
+    setStep(0);
+    setNotice("");
+    setErrors({});
+    try {
+      sessionStorage.removeItem("ritik-booking-draft");
+    } catch {
+      // Storage may be disabled in private browsing.
+    }
+  }
   function update(name, value) {
     setData((previous) => ({
       ...previous,
@@ -69,6 +84,8 @@ export default function BookingForm() {
       setNotice("Could not restore a draft.");
     }
   }
+  if (completed)
+    return <BookingComplete booking={completed} onRestart={() => setCompleted(null)} />;
   return (
     <>
       <form id="booking-form" className="bookingForm" onSubmit={advance} noValidate>
@@ -140,7 +157,9 @@ export default function BookingForm() {
             "Your details stay in this browser until you choose to send them. No payment is collected."}
         </p>
       </form>
-      {ready && <BookingTicket data={data} onClose={() => setReady(false)} />}
+      {ready && (
+        <BookingTicket data={data} onClose={() => setReady(false)} onSuccess={finish} />
+      )}
     </>
   );
 }

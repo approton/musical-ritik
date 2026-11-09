@@ -15,6 +15,10 @@ function createInquiry(parameters) {
       "The booking desk is busy. Please contact Ritik directly by email or Instagram.",
     );
   const fingerprint = tokenDigest(JSON.stringify(data));
+  if (parameters.receipt && cache.get("duplicate-" + fingerprint))
+    throw new Error(
+      "This request was recently submitted. Please check your email for Ritik’s decision.",
+    );
   if (cache.get("duplicate-" + fingerprint))
     return responsePage(
       "Already received.",
@@ -52,6 +56,8 @@ function createInquiry(parameters) {
       tokenDigest(token),
       JSON.stringify(data),
       "pending",
+      "",
+      parameters.receipt ? tokenDigest(parameters.receipt) : "",
     ]);
   } catch (error) {
     Calendar.Events.remove(config.calendarId, event.id, { sendUpdates: "none" });
@@ -83,6 +89,7 @@ function createInquiry(parameters) {
   } catch {
     record.notification = "failed";
     writeRequest(record);
+    if (parameters.receipt) return;
     return responsePage(
       "Request saved.",
       "<p>Your request is tentative, but the artist notification could not be sent. Please email the artist with this reference: <strong>" +
@@ -90,6 +97,7 @@ function createInquiry(parameters) {
         "</strong>.</p>",
     );
   }
+  if (parameters.receipt) return;
   return responsePage(
     "Request received — awaiting approval.",
     "<p>Your preferred date is tentative. Ritik will review your request before a calendar invite is sent.</p><p>Reference: " +

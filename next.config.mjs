@@ -5,6 +5,6 @@ export default function nextConfig(phase) {
     images: { unoptimized: true },
     allowedDevOrigins: ["192.168.31.21"],
     distDir: development ? ".next-dev" : ".next",
-    ...(development ? {} : { output: "export" }),
+    ...(development || process.env.VERCEL === "1" ? {} : { output: "export" }),
   };
 }

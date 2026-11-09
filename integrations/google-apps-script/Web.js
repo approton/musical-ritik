@@ -15,6 +15,38 @@ function doGet(e) {
   }
 }
 function doPost(e) {
+  const form = e.parameter || {};
+  if (
+    form.action === "clientSubmit" ||
+    (e.postData && e.postData.type.split(";")[0] === "application/json")
+  ) {
+    let result;
+    let lock;
+    try {
+      if (e.postData.contents.length > 18000) throw new Error("Request too large.");
+      const body =
+        form.action === "clientSubmit"
+          ? {
+              action: "submit",
+              receipt: form.receipt,
+              consent: form.consent,
+              data: JSON.parse(form.payload),
+            }
+          : JSON.parse(e.postData.contents);
+      if (body.action === "submit") {
+        lock = LockService.getScriptLock();
+        if (!lock.tryLock(5000)) throw new Error("The booking desk is busy. Try again.");
+      }
+      result = clientBookings(body);
+    } catch (error) {
+      result = { ok: false, error: error.message };
+    } finally {
+      if (lock && lock.hasLock()) lock.releaseLock();
+    }
+    return ContentService.createTextOutput(JSON.stringify(result)).setMimeType(
+      ContentService.MimeType.JSON,
+    );
+  }
   const lock = LockService.getScriptLock();
   if (!lock.tryLock(5000))
     return responsePage(

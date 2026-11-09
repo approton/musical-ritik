@@ -7,8 +7,7 @@ export function useAvailability({ date, timezone, duration }) {
   useEffect(() => {
     if (!integrations.bookingWebAppUrl || !date) return;
     const controller = new AbortController();
-    const url = new URL(integrations.bookingWebAppUrl);
-    url.searchParams.set("mode", "availability");
+    const url = new URL("/api/booking/availability", window.location.origin);
     url.searchParams.set("date", date);
     url.searchParams.set("timezone", timezone);
     url.searchParams.set("duration", duration);

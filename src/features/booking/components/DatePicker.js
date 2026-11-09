@@ -72,9 +72,7 @@ export default function DatePicker({ value, onChange, error, timezone }) {
           {error}
         </p>
       )}
-      <small>
-        Choose a preferred date. This calendar does not show live availability.
-      </small>
+      <small>Choose a date to see the start times below.</small>
     </div>
   );
 }
