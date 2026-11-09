@@ -1,0 +1,167 @@
+.floatingField {
+  position: relative;
+  min-width: 0;
+  margin-top: 8px;
+  align-self: start;
+}
+.floatingField > input,
+.floatingField > textarea {
+  width: 100%;
+  padding: 24px 15px 10px !important;
+  margin-top: 0 !important;
+  min-height: 60px !important;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #ffffff05;
+  font-size: 14px;
+  color: var(--text);
+}
+.floatingField > label {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  pointer-events: none;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.2;
+  transition:
+    transform 0.2s,
+    color 0.2s,
+    font-size 0.2s;
+  transform-origin: left top;
+  max-width: calc(100% - 30px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.floatingField > input:focus + label,
+.floatingField > textarea:focus + label,
+.floatingField > input:not(:placeholder-shown) + label,
+.floatingField > textarea:not(:placeholder-shown) + label {
+  transform: translateY(-12px);
+  font-size: 9px;
+  letter-spacing: 0.6px;
+  color: var(--amber);
+}
+.floatingField:focus-within {
+  transform: translateY(-2px);
+  transition: transform 0.2s;
+}
+.floatingField:focus-within::after {
+  content: "♪";
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  font-size: 12px;
+  color: var(--amber);
+  animation: noteFloat 0.8s ease-out both;
+  pointer-events: none;
+}
+.floatingField > input:focus,
+.floatingField > textarea:focus {
+  outline: none;
+  border-color: var(--amber);
+  box-shadow:
+    0 5px 25px #f5ac4212,
+    0 0 0 3px #f5ac4210;
+}
+.floatingInvalid > input {
+  border-color: #d26858 !important;
+}
+.contactForm > .floatingField,
+.bookingForm > .floatingField {
+  margin-top: 25px;
+}
+.bookingForm .formActions button,
+.contactForm > .submit {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.bookingForm .formActions button::after,
+.contactForm > .submit::after {
+  content: "♫";
+  position: absolute;
+  right: 15px;
+  bottom: -25px;
+  opacity: 0;
+  transition:
+    bottom 0.3s,
+    opacity 0.3s;
+}
+.bookingForm .formActions button:active::after,
+.contactForm > .submit:active::after {
+  bottom: 10px;
+  opacity: 0.6;
+}
+.bookingForm .formActions button:active,
+.contactForm > .submit:active {
+  box-shadow: 0 0 30px #f5ac4240;
+  transform: translateY(2px);
+}
+.contactForm::after,
+.bookingForm::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 110px;
+  height: 60px;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent 0 10px, #f5ac4210 10px 11px);
+  transform: rotate(-25deg);
+  z-index: 0;
+}
+.contactForm > *,
+.bookingForm > * {
+  position: relative;
+  z-index: 1;
+}
+.floatingField .fieldError {
+  position: static;
+  font-size: 11px;
+}
+.bookingForm .floatingField > label,
+.contactForm .floatingField > label {
+  margin: 0;
+  line-height: 1.2;
+}
+.contactForm .floatingField > textarea {
+  min-height: 155px !important;
+  resize: vertical;
+}
+@keyframes noteFloat {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-2px);
+    opacity: 0.7;
+  }
+}
+@media (max-width: 680px) {
+  .floatingField > input,
+  .floatingField > textarea {
+    font-size: 16px;
+    min-height: 60px;
+  }
+  .floatingField > label {
+    font-size: 13px;
+  }
+  .floatingField:focus-within {
+    transform: none;
+  }
+  .contactForm::after,
+  .bookingForm::after {
+    width: 80px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .floatingField:focus-within::after {
+    animation: none;
+  }
+  .floatingField:focus-within {
+    transform: none;
+  }
+}

@@ -1,0 +1,483 @@
+.booking {
+  background: radial-gradient(ellipse at 5% 20%, #f5ac4210, transparent 45%), var(--bg);
+  align-items: start;
+}
+.booking > .bookingForm {
+  position: relative;
+  box-shadow:
+    0 25px 80px #0003,
+    inset 0 1px 0 #ffffff15;
+}
+.bookingForm,
+.contactForm {
+  padding: 36px;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(145deg, var(--panel), var(--bg)) padding-box,
+    linear-gradient(145deg, #f5ac4250, #85e0e120, #ffffff08) border-box;
+  border-radius: 22px;
+}
+.bookingForm h3 {
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: -1px;
+  margin: 25px 0;
+}
+.bookingSteps {
+  padding: 0 0 25px;
+  border-bottom: 1px solid var(--line);
+}
+.bookingSteps li {
+  font-size: 11px;
+}
+.bookingSteps b {
+  width: 30px;
+  height: 30px;
+}
+.bookingSteps li[aria-current] b {
+  background: var(--amber);
+  color: #19120a;
+  box-shadow: 0 0 20px #f5ac4235;
+}
+.bookingForm .formGrid {
+  gap: 20px;
+}
+.bookingForm label,
+.contactForm label {
+  font-size: 12px;
+  line-height: 1.7;
+}
+.bookingForm input:not([type="radio"]):not([type="checkbox"]),
+.bookingForm select,
+.bookingForm textarea,
+.contactForm input,
+.contactForm select,
+.contactForm textarea {
+  background: #ffffff05;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 15px;
+  min-height: 48px;
+  margin-top: 8px;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+.bookingForm input:focus,
+.bookingForm select:focus,
+.bookingForm textarea:focus,
+.contactForm input:focus,
+.contactForm select:focus,
+.contactForm textarea:focus {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px #f5ac4215;
+  background: #f5ac4205;
+  outline: none;
+}
+.bookingForm input[aria-invalid="true"] {
+  border-color: #d86756;
+}
+.bookingForm .formActions .primary,
+.contactForm .primary {
+  min-height: 52px;
+  align-items: center;
+}
+.experiencePicker {
+  padding: 0;
+  border: 0;
+  margin: 0 0 25px;
+}
+.experiencePicker legend {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 15px;
+}
+.experiencePicker > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.experiencePicker label {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #ffffff03;
+  padding: 16px 12px;
+  min-height: 100px;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    background 0.2s,
+    border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.experiencePicker input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.experiencePicker label:focus-within {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+.experiencePicker label:hover {
+  transform: translateY(-3px);
+  border-color: #f5ac4255;
+}
+.experiencePicker .experienceSelected {
+  background: linear-gradient(145deg, #f5ac421b, #f5ac4204);
+  border-color: var(--amber);
+}
+.experienceNumber {
+  font-size: 9px;
+  color: var(--muted);
+}
+.experiencePicker strong {
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--text);
+}
+.choiceMark {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  font-size: 15px;
+  color: var(--amber);
+}
+.datePicker {
+  border-radius: 14px;
+  padding: 20px;
+  background: linear-gradient(145deg, #ffffff04, transparent);
+}
+.calendarHeader {
+  margin-bottom: 20px;
+}
+.calendarHeader strong {
+  font-size: 17px;
+  font-family: var(--font-display);
+}
+.calendarHeader button {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  font-size: 17px;
+}
+.calendarGrid {
+  gap: 6px;
+}
+.calendarGrid button {
+  height: 38px;
+  border-radius: 8px;
+  background: #ffffff04;
+  transition:
+    background 0.15s,
+    transform 0.15s;
+}
+.calendarGrid button:hover:not(:disabled) {
+  background: #f5ac4215;
+  transform: translateY(-2px);
+}
+.calendarGrid .chosen {
+  background: var(--amber);
+  box-shadow: 0 5px 15px #f5ac4225;
+  color: #17110a;
+}
+.calendarGrid span {
+  font-size: 10px;
+}
+.calendarGrid button:disabled {
+  opacity: 0.22;
+}
+.bookingProcess {
+  padding: 20px 0;
+}
+.bookingProcess p {
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+}
+.bookingArt {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse at 75% 20%, #85e0e115, transparent 65%),
+    radial-gradient(ellipse at 25% 90%, #f5ac4220, transparent 70%);
+  border-radius: 18px;
+  height: 270px;
+  margin: 35px 0;
+}
+.bookingArt img {
+  height: 125%;
+  width: auto;
+  position: absolute;
+  right: -10px;
+  top: 8px;
+  filter: drop-shadow(0 0 20px #f5ac4210);
+}
+.bookingArtCopy {
+  position: absolute;
+  left: 25px;
+  top: 35px;
+  z-index: 1;
+}
+.bookingArtCopy small {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: var(--amber);
+}
+.bookingArtCopy strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.15;
+  margin-top: 20px;
+  letter-spacing: -1px;
+}
+.bookingArtCopy > span {
+  display: block;
+  font-size: 7px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-top: 22px;
+}
+.bookingReview {
+  padding: 20px;
+  background: #ffffff03;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.draftActions {
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+}
+.draftActions button {
+  min-height: 36px;
+}
+.bookingForm .formNote {
+  font-size: 10px;
+}
+@media (max-width: 900px) {
+  .booking {
+    gap: 30px;
+  }
+  .bookingArt {
+    height: 230px;
+    max-width: 600px;
+  }
+  .bookingArt img {
+    right: 30px;
+  }
+  .bookingProcess {
+    display: none;
+  }
+  .booking .notice {
+    max-width: 600px;
+  }
+  .bookingForm {
+    max-width: none !important;
+  }
+  .booking > .bookingForm {
+    width: 100%;
+  }
+}
+@media (max-width: 680px) {
+  .bookingForm,
+  .contactForm {
+    padding: 22px;
+    border-radius: 17px;
+  }
+  .bookingForm h3 {
+    font-size: 27px;
+  }
+  .experiencePicker > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .experiencePicker label {
+    min-height: 88px;
+    padding: 13px;
+    gap: 10px;
+  }
+  .experiencePicker strong {
+    font-size: 13px;
+  }
+  .calendarGrid {
+    gap: 4px;
+  }
+  .datePicker {
+    padding: 14px;
+  }
+  .calendarGrid button {
+    min-height: 34px;
+    height: 36px;
+    font-size: 12px;
+  }
+  .bookingArt {
+    height: 210px;
+    margin-top: 25px;
+  }
+  .bookingArtCopy {
+    left: 20px;
+    top: 28px;
+  }
+  .bookingArtCopy strong {
+    font-size: 28px;
+  }
+  .bookingArt img {
+    right: 0;
+  }
+  .bookingSteps {
+    gap: 9px;
+    padding-bottom: 20px;
+  }
+  .bookingSteps li {
+    font-size: 9px;
+  }
+  .bookingSteps b {
+    width: 25px;
+    height: 25px;
+  }
+  .bookingForm .formGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .bookingForm input:not([type="radio"]):not([type="checkbox"]),
+  .bookingForm select,
+  .bookingForm textarea,
+  .contactForm input,
+  .contactForm select,
+  .contactForm textarea {
+    font-size: 16px;
+    min-height: 50px;
+  }
+  .bookingForm .formActions {
+    gap: 15px;
+  }
+  .bookingForm .formActions .primary {
+    font-size: 12px;
+  }
+  .bookingSteps li {
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+  }
+  .bookingSteps {
+    justify-content: space-around;
+  }
+  .formNote {
+    font-size: 11px;
+  }
+  .availabilityNote {
+    font-size: 11px;
+  }
+}
+[data-theme="light"] .bookingForm,
+[data-theme="light"] .contactForm {
+  background:
+    linear-gradient(145deg, #fffdf8, #f3ebde) padding-box,
+    linear-gradient(145deg, #c1914f, #77a5a6) border-box;
+}
+[data-theme="light"] .bookingForm input,
+[data-theme="light"] .bookingForm textarea,
+[data-theme="light"] .bookingForm select,
+[data-theme="light"] .contactForm input,
+[data-theme="light"] .contactForm textarea,
+[data-theme="light"] .contactForm select {
+  background: #fffaf3;
+  border-color: #8c724333;
+}
+
+.locationPicker {
+  border: 0;
+  padding: 0;
+  margin: 28px 0 0;
+  min-width: 0;
+}
+.locationPicker legend {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.locationModes {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.locationModes button {
+  flex: 1;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #ffffff04;
+  padding: 13px;
+  font-size: 11px;
+  min-height: 46px;
+}
+.locationModes .modeSelected {
+  border-color: var(--amber);
+  color: var(--amber);
+  background: #f5ac420c;
+}
+.locationHelp {
+  font-size: 10px;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 5px;
+}
+.locationHelp button {
+  background: none;
+  border: 0;
+  color: var(--amber);
+  font-size: 10px;
+  padding: 6px 0;
+  min-height: 32px;
+}
+.locationPicker > .floatingField {
+  margin-top: 22px;
+}
+.locationPicker input[readonly] {
+  opacity: 0.65;
+}
+.siteHeader .sound > span {
+  font-size: 8px;
+}
+@media (max-width: 900px) {
+  .siteHeader .sound {
+    flex-direction: column;
+    gap: 1px;
+  }
+  .siteHeader .sound .bars {
+    height: 14px;
+  }
+  .siteHeader .sound > span {
+    display: block;
+    font-size: 6px;
+    letter-spacing: 0.3px;
+  }
+  .siteHeader .sound .bars b {
+    max-height: 13px;
+  }
+  .locationHelp button {
+    min-height: 44px;
+    font-size: 12px;
+  }
+}
+
+#booking-form {
+  scroll-margin-top: 20px;
+}
+@media (max-width: 900px) {
+  #booking-form {
+    scroll-margin-top: 10px;
+  }
+}

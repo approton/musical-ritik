@@ -1,0 +1,95 @@
+.instrument {
+  background: radial-gradient(ellipse at 50% 100%, #49321935, transparent 75%), #111115;
+  border: 1px solid var(--line);
+  padding: 25px 35px;
+}
+.instrumentHead,
+.instrumentFoot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #85858c;
+}
+.strings {
+  padding: 25px 0;
+}
+.strings button {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background: none;
+  border: 0;
+  width: 100%;
+  height: 37px;
+  color: #cfbf9f;
+}
+.strings button span {
+  width: 15px;
+  font-family: Georgia, serif;
+}
+.strings i {
+  flex: 1;
+  background: linear-gradient(90deg, #5d4d36, #d9ba81, #5d4d36);
+  box-shadow: 0 2px 3px #000;
+}
+.strings small {
+  font-size: 8px;
+  color: #666;
+}
+.strings button:hover i {
+  background: var(--amber);
+  box-shadow: 0 0 13px #f5ac4260;
+}
+.vibrate i {
+  animation: vibrate 0.08s linear 6;
+}
+@keyframes vibrate {
+  50% {
+    transform: translateY(4px);
+  }
+}
+.instrumentFoot {
+  align-items: center;
+}
+.instrumentFoot button {
+  font-size: 8px;
+  letter-spacing: 1px;
+  background: none;
+  border: 0;
+  color: var(--amber);
+  padding: 10px;
+}
+.skills {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 35px;
+}
+.skills article {
+  padding: 20px 30px;
+  border-right: 1px solid var(--line);
+  transition: transform 0.3s;
+}
+.skills article:first-child {
+  padding-left: 0;
+}
+.skills article:last-child {
+  border: 0;
+}
+.skills article:hover {
+  transform: perspective(500px) rotateY(-5deg) translateY(-6px);
+}
+.skills small {
+  color: var(--amber);
+  font-size: 10px;
+}
+.skills h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 20px 0 12px;
+}
+.skills p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+}

@@ -1,0 +1,196 @@
+.playground {
+  background: radial-gradient(ellipse at 95% 10%, #85e0e109, transparent 50%);
+}
+.padSection {
+  margin-top: 70px;
+}
+.padSection > p {
+  font-size: 13px;
+  color: var(--muted);
+}
+.soundPads {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 14px;
+  margin-top: 35px;
+  perspective: 900px;
+}
+.pad {
+  height: 170px;
+  border-radius: 16px;
+  border: 1px solid #ffffff20;
+  background: linear-gradient(150deg, #2e2d35, #111116 70%);
+  box-shadow:
+    inset 0 1px 0 #ffffff20,
+    0 8px 0 #030306,
+    0 15px 25px #0005;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px;
+  transition:
+    transform 0.12s,
+    box-shadow 0.12s,
+    color 0.12s;
+  transform: rotateX(8deg);
+}
+.pad small {
+  align-self: start;
+  font-size: 8px;
+  color: #73717e;
+}
+.pad strong {
+  font-size: 34px;
+  font-weight: 500;
+  font-family: var(--font-display);
+}
+.pad kbd {
+  font-size: 9px;
+  color: #a9a6ae;
+  border: 1px solid var(--line);
+  padding: 4px 7px;
+  border-radius: 4px;
+}
+.pad:hover {
+  border-color: #85e0e170;
+  color: var(--cyan);
+  transform: translateY(-4px) rotateX(8deg);
+}
+.pad:active,
+.activePad {
+  transform: translateY(6px);
+  background: linear-gradient(150deg, #a07439, #2f251a);
+  color: #ffdca5;
+  border-color: var(--amber);
+  box-shadow:
+    0 2px 0 #030306,
+    0 0 35px #f5ac4225;
+}
+.sequencer {
+  margin-top: 90px;
+  padding: 35px;
+}
+.sequencer h2 {
+  font-size: 35px;
+}
+.tempo {
+  width: 160px;
+  font-size: 11px;
+  color: var(--amber);
+}
+.tempo input {
+  accent-color: var(--amber);
+  padding: 15px 0;
+}
+.sequencerScroll {
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+.sequencerGrid {
+  min-width: 650px;
+}
+.stepNumbers,
+.sequenceRow {
+  display: grid;
+  grid-template-columns: 75px repeat(16, 1fr);
+  gap: 7px;
+  margin-bottom: 9px;
+  align-items: center;
+}
+.stepNumbers small {
+  font-size: 8px;
+  color: #666;
+  text-align: center;
+}
+.stepNumbers .currentBeat {
+  color: var(--amber);
+}
+.sequenceRow strong {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #999;
+}
+.sequenceRow button {
+  height: 38px;
+  background: #ffffff06;
+  border: 1px solid #ffffff10;
+  border-radius: 5px;
+  box-shadow: 0 3px 0 #050507;
+}
+.sequenceRow button:nth-child(4n + 2) {
+  border-left-color: #ffffff35;
+}
+.sequenceRow .stepOn {
+  background: linear-gradient(150deg, #dba350, #785723);
+  border-color: #ffca76;
+  box-shadow: 0 3px 0 #503615;
+}
+.sequenceRow .stepPlaying {
+  outline: 2px solid var(--cyan);
+  outline-offset: 1px;
+  box-shadow: 0 0 18px #85e0e130;
+}
+.playgroundGuitar {
+  margin-top: 90px;
+}
+.playgroundGuitar h2 {
+  margin-bottom: 35px;
+}
+@media (max-width: 900px) {
+  .soundPads {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  .pad {
+    height: 150px;
+  }
+  .sequencer {
+    padding: 25px;
+  }
+}
+@media (max-width: 680px) {
+  .padSection {
+    margin-top: 45px;
+  }
+  .soundPads {
+    gap: 10px;
+  }
+  .pad {
+    height: 125px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+  .pad strong {
+    font-size: 28px;
+  }
+  .pad kbd {
+    font-size: 8px;
+  }
+  .sequencer {
+    margin-top: 60px;
+    padding: 20px;
+  }
+  .sequencer h2 {
+    font-size: 28px;
+  }
+  .tempo {
+    width: 100%;
+    max-width: 250px;
+  }
+  .sequenceRow button {
+    height: 32px;
+  }
+  .sequencer .formActions {
+    gap: 10px;
+  }
+  .sequencer .primary,
+  .sequencer .secondary {
+    font-size: 10px;
+    padding: 12px;
+  }
+  .playgroundGuitar {
+    margin-top: 65px;
+  }
+}

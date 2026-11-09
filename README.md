@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ritik — The live experience
 
-## Getting Started
+A component-based, feature-isolated Next.js artist web app for Ritik Pandey.
 
-First, run the development server:
+## Run
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- `npm install`
+- `npm run dev` — development preview, normally port 3000.
+- `npm run check` — Prettier check, ESLint (zero warnings), tests, production export.
+- `npm run build` — production static export in `out/`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The working preview for this chat uses port 3001 with a separate development cache. Development uses `.next-dev`; production uses `.next`. Deploy the `out/` export with route fallback to the corresponding `.html` files. `next start` is not a static-file server.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Artist home with transparent performance cutout, stage particles, scroll lift, and moving headline.
+- Responsive navigation, accessible dialogs, persisted dark/light theme, reduced-motion support.
+- Licensed MP3 background playlist (guitar, piano, violin), shuffle without immediate repeats, synchronized sound controls.
+- Keyboard/touch sound pads, sixteen-step sequencer, playable guitar strings.
+- Gallery with five curated real Instagram reel thumbnails and exact post links, plus an uncropped cutout photo/lightbox.
+- Three-step booking/appointment inquiry, interactive experience cards, date picker, floating inputs, optional tab-only drafts.
+- FormSubmit inquiry delivery to the configured recipient; Google Calendar adapter and approval/reminder backend prepared separately.
+- Contact, live dates, press kit, downloadable bio/photo, music credits, privacy and error/loading routes.
 
-## Learn More
+## Activation status
 
-To learn more about Next.js, take a look at the following resources:
+FormSubmit targets `ritikpandey195@gmail.com`; the owner must activate the verification email before delivery is considered live. No test submission or activation email was sent by the agent.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Google Calendar is **not connected**. The frontend clearly labels its preferred-time fallback as unverified. Add the artist-authorized Google Apps Script URL after following [the setup guide](docs/BOOKING-SETUP.md). Only then does it fetch free/busy slots, recheck submissions, create tentative events, send approval messages and enable reminders. Google account permissions and an end-to-end live test are still required.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Instagram highlights were collected from the public profile on 9 November 2026. Public view totals were unavailable behind Instagram’s login gate. They are curated highlights, not a claimed account-wide popularity ranking. Automatic ranking requires an authorized data source/API and server-held credentials.
 
-## Deploy on Vercel
+See [architecture](docs/ARCHITECTURE.md), [content updates](docs/CONTENT-GUIDE.md), and [asset provenance](docs/ASSET-PROVENANCE.md).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The Site identity in `.openai/hosting.json` is registered but no production deployment is verified. A previous automatic approval review blocked source/photo upload pending explicit approval. Local work remains available.

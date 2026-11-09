@@ -1,0 +1,83 @@
+.booking {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 10%;
+}
+.booking h2 {
+  font-size: clamp(50px, 5vw, 76px);
+}
+.notice {
+  border-top: 1px solid var(--line);
+  margin-top: 50px;
+  padding-top: 25px;
+  max-width: 320px;
+}
+.notice > span {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--amber);
+}
+.notice p {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+form {
+  padding: 32px;
+  background: #111216;
+  border: 1px solid var(--line);
+}
+.formTitle {
+  display: flex;
+  justify-content: space-between;
+  letter-spacing: 2px;
+  font-size: 10px;
+  margin-bottom: 30px;
+}
+.formTitle span {
+  color: var(--amber);
+}
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 21px 20px;
+}
+label {
+  display: block;
+  font-size: 10px;
+  color: #adadb4;
+}
+input,
+select,
+textarea {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ffffff25;
+  color: #eee;
+  border-radius: 0;
+  padding: 12px 0;
+  font-size: 12px;
+  min-width: 0;
+  color-scheme: dark;
+}
+option {
+  background: #111;
+}
+form > label {
+  margin-top: 22px;
+}
+textarea {
+  resize: vertical;
+}
+.submit {
+  width: 100%;
+  margin-top: 25px;
+}
+.formNote {
+  display: block;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.7;
+  margin-top: 14px;
+}

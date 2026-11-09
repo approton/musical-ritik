@@ -1,0 +1,15 @@
+node_modules/
+.next/
+out/
+build/
+coverage/
+package-lock.json
+.git/
+.openai/
+*.tar.gz
+
+.next-preview/
+
+.next-production/
+
+.next-dev/

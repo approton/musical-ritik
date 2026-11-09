@@ -1,0 +1,347 @@
+.hero {
+  background:
+    radial-gradient(ellipse at 85% 35%, #85e0e116, transparent 55%),
+    radial-gradient(ellipse at 35% 95%, #f5ac4212, transparent 70%), var(--bg);
+}
+.hero::before {
+  content: "LIVE";
+  position: absolute;
+  left: 28%;
+  bottom: 4%;
+  font: 600 25vw/0.8 var(--font-display);
+  letter-spacing: -0.08em;
+  color: transparent;
+  -webkit-text-stroke: 1px #ffffff05;
+  pointer-events: none;
+  z-index: -1;
+}
+.heroPhoto {
+  width: 64%;
+  right: -4%;
+  top: 8px;
+  bottom: -20%;
+}
+.heroPhoto img {
+  object-position: center top;
+  filter: drop-shadow(25px 20px 35px #0005) drop-shadow(-15px 0 30px #85e0e11a);
+}
+.hero .photoShade {
+  background: linear-gradient(0deg, var(--bg) 5%, transparent 35%);
+}
+.heroContent {
+  max-width: 70%;
+}
+.hero .photoLabel {
+  right: 4%;
+  background: #14141b55;
+  backdrop-filter: blur(15px);
+}
+@media (min-width: 1500px) and (min-height: 800px) {
+  .heroContent h1 {
+    font-size: clamp(94px, 11.8svh, 124px);
+  }
+  .heroContent {
+    padding-top: 38px;
+  }
+  .heroContent > p {
+    font-size: 16px;
+  }
+  .heroContent .actions {
+    margin-top: 30px;
+  }
+  .heroContent .primary {
+    font-size: 14px;
+    padding: 21px 28px;
+  }
+  .heroPhoto {
+    right: -1%;
+    width: 67%;
+    bottom: -23%;
+  }
+  .hero .eyebrow {
+    font-size: 10px;
+  }
+  .hero .photoLabel {
+    bottom: 30px;
+  }
+  .heroContent .playAction {
+    font-size: 13px;
+  }
+}
+@media (max-width: 900px) {
+  .hero {
+    min-height: calc(100svh - 140px);
+    height: auto;
+    max-height: none;
+  }
+  .heroContent {
+    max-width: 80%;
+    padding-top: 150px;
+    padding-bottom: 90px;
+  }
+  .heroPhoto {
+    width: 75%;
+    height: 490px;
+    right: -12%;
+    top: 8px;
+    bottom: auto;
+  }
+  .heroContent h1 {
+    font-size: clamp(50px, 7.5vw, 75px);
+  }
+  .hero .photoLabel {
+    top: 18px;
+    bottom: auto;
+  }
+  .hero::before {
+    font-size: 45vw;
+    left: 15%;
+    bottom: 15%;
+  }
+}
+@media (max-width: 680px) {
+  .heroContent {
+    padding: 235px 6% 80px;
+    max-width: 100%;
+  }
+  .heroContent h1 {
+    font-size: clamp(45px, 12.5vw, 62px);
+    margin: 18px 0;
+  }
+  .heroContent > p {
+    font-size: 13px;
+  }
+  .hero .eyebrow {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+  .heroPhoto {
+    width: 100%;
+    height: 400px;
+    right: 0;
+    top: 8px;
+    bottom: auto;
+  }
+  .heroPhoto img {
+    object-position: 80% top;
+  }
+  .hero .photoShade {
+    background: linear-gradient(0deg, var(--bg), transparent 75%);
+  }
+  .hero .photoLabel {
+    top: 12px;
+    right: 12px;
+  }
+  .hero .actions {
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .hero .primary {
+    min-height: 48px;
+    font-size: 12px;
+    padding: 16px 20px;
+  }
+  .hero .playAction {
+    min-height: 48px;
+    font-size: 12px;
+    gap: 10px;
+  }
+  .hero .circle {
+    height: 44px;
+    width: 44px;
+  }
+  .hero .photoLabel {
+    font-size: 6px;
+  }
+  .hero .actions .primary {
+    flex: 1;
+    justify-content: center;
+    gap: 20px;
+  }
+  .hero .actions .playAction {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero::before {
+    font-size: 55vw;
+    left: 0;
+    bottom: 8%;
+  }
+}
+@media (max-width: 680px) and (max-height: 740px) {
+  .heroContent {
+    padding-top: 155px;
+    padding-bottom: 65px;
+  }
+  .heroContent h1 {
+    font-size: 39px;
+    margin: 14px 0;
+  }
+  .heroContent > p {
+    font-size: 12px;
+  }
+  .hero .actions {
+    margin-top: 18px;
+    gap: 10px;
+  }
+  .heroPhoto {
+    height: 315px;
+  }
+  .hero .eyebrow {
+    font-size: 6px;
+  }
+}
+[data-theme="light"] .hero::before {
+  -webkit-text-stroke-color: #8f65100c;
+}
+[data-theme="light"] .hero .photoLabel {
+  background: #fff9efaa;
+}
+.heroPhoto img {
+  transform: none;
+  transform-origin: center top;
+}
+
+/* A single flowing stage on phones and tablets: no empty viewport filler or portrait badge. */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 100%;
+  height: 54px !important;
+}
+.marquee > div {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  width: max-content;
+  line-height: 1.2;
+  animation: headlineFlow 36s linear infinite;
+}
+.marquee span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.heroPhoto .photoShade {
+  display: none;
+}
+.heroPhoto img {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 77%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 77%, transparent 100%);
+}
+@keyframes headlineFlow {
+  from {
+    transform: translateX(-40%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@media (max-width: 900px) {
+  .hero {
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none;
+  }
+  .heroContent {
+    padding-bottom: 30px !important;
+    max-width: 100%;
+  }
+  .hero .photoLabel {
+    display: none;
+  }
+  .hero::before {
+    display: none;
+  }
+  .hero .particleStage {
+    height: 390px;
+    top: 0;
+  }
+  .heroPhoto {
+    height: 440px;
+  }
+  .hero .actions {
+    margin-bottom: 0;
+  }
+  .marquee {
+    margin-top: 0;
+    height: 48px !important;
+  }
+  .marquee span {
+    margin-inline: 25px;
+  }
+  .marquee > div {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+}
+@media (max-width: 680px) {
+  .heroContent {
+    padding-top: 215px;
+  }
+  .heroPhoto {
+    height: 365px;
+  }
+  .heroContent .actions {
+    gap: 12px;
+  }
+  .hero .actions .playAction {
+    margin-bottom: 0;
+  }
+  .heroContent h1 {
+    line-height: 1.02;
+  }
+  .heroPhoto img {
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 68%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 68%, transparent 100%);
+  }
+}
+@media (max-width: 680px) and (max-height: 740px) {
+  .heroContent {
+    padding-top: 135px;
+    padding-bottom: 24px !important;
+  }
+  .heroPhoto {
+    height: 300px;
+  }
+  .heroContent h1 {
+    font-size: 36px;
+    margin: 12px 0;
+  }
+  .heroContent > p {
+    font-size: 11px;
+    line-height: 1.6;
+  }
+  .hero .actions {
+    margin-top: 16px;
+    gap: 8px;
+  }
+  .hero .primary,
+  .hero .playAction {
+    min-height: 46px;
+  }
+  .hero .circle {
+    height: 38px;
+    width: 38px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee > div {
+    animation: none;
+  }
+}
+/* Keep the moving headline at the first mobile viewport's lower edge. */
+@media (max-width: 900px) {
+  .hero {
+    display: grid;
+    align-items: end;
+    min-height: calc(100svh - 130px) !important;
+  }
+  .heroContent {
+    width: 100%;
+  }
+}
+@media (max-width: 680px) {
+  .heroPhoto {
+    height: clamp(300px, 57svh, 530px);
+  }
+}

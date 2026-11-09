@@ -1,0 +1,16 @@
+---
+description: Component-based feature architecture and code quality for this app
+alwaysApply: true
+---
+
+- Build small, single-responsibility React components; route files only compose feature entry points.
+- Organize independently routed features under src/features with public index.js contracts.
+- Import other features only through public entry points, never their internal components.
+- Keep audio, persistence, validation, data and UI in separate modules and hooks.
+- Keep shared app shell, accessible primitives and providers under src/shared.
+- Use feature-owned styles, configuration-driven content and responsive layouts.
+- Format every supported source/config/doc file with Prettier.
+- Run npm run format:check, npm run lint, npm test and npm run build before delivery.
+- Keep ESLint at zero warnings; fix issues rather than suppressing rules.
+- Describe single-deployment feature modules accurately; do not claim independent microfrontend deployments without implementing them.
+- Never claim inquiries were delivered or dates confirmed without a working backend.

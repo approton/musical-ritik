@@ -1,0 +1,102 @@
+.contactLayout {
+  background:
+    radial-gradient(ellipse at 0 10%, #85e0e10c, transparent 40%),
+    radial-gradient(ellipse at 90% 70%, #f5ac420a, transparent 55%), var(--bg);
+  align-items: start;
+}
+.contactLayout .pageHeading h1 {
+  font-size: clamp(45px, 5.1vw, 76px);
+}
+.contactChannels {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 0 25px;
+  background: linear-gradient(145deg, #ffffff04, transparent);
+  max-width: 500px;
+}
+.contactChannels a {
+  padding: 25px 0;
+  transition: padding-left 0.2s;
+}
+.contactChannels a:last-child {
+  border-bottom: 0;
+}
+.contactChannels a:hover {
+  padding-left: 8px;
+}
+.contactChannels strong {
+  font-family: var(--font-display);
+  font-size: 18px;
+}
+.contactForm {
+  position: relative;
+  overflow: hidden;
+}
+.contactForm::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--amber), var(--cyan), transparent);
+}
+.contactForm h3 {
+  font-size: 32px;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+.contactForm .formGrid {
+  gap: 22px;
+}
+.contactForm > label {
+  margin-top: 24px;
+}
+.contactForm .primary {
+  font-size: 12px;
+}
+.preparedMessage {
+  margin-top: 22px;
+  border-color: #f5ac4240;
+  border-radius: 18px;
+}
+.preparedMessage h3 {
+  font-size: 25px;
+  font-family: var(--font-display);
+}
+.deliveryForm .consent {
+  font-size: 12px;
+}
+.deliveryForm .consent input {
+  min-height: 20px;
+  width: 20px;
+}
+.deliveryForm .submit {
+  font-size: 12px;
+  min-height: 50px;
+  align-items: center;
+}
+.consent input {
+  accent-color: var(--amber);
+}
+@media (max-width: 680px) {
+  .contactChannels {
+    padding: 0 20px;
+  }
+  .contactChannels strong {
+    font-size: 16px;
+    overflow-wrap: anywhere;
+  }
+  .contactForm .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .contactForm h3 {
+    font-size: 29px;
+  }
+  .contactLayout .pageHeading h1 {
+    font-size: 45px;
+  }
+  .preparedMessage {
+    padding: 22px;
+  }
+}
